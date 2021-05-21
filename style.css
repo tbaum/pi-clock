@@ -42,3 +42,10 @@ body {
     visibility: hidden;
 }
 
+#clock2 {
+    font-family: "Share Tech Mono";
+    font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

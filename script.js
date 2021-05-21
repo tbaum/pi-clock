@@ -76,6 +76,9 @@ function showTime() {
     document.getElementById("min").innerText = m;
     document.getElementById("sec").innerText = s;
 
+    let formatOptions = {timeZone: 'Asia/Kuala_Lumpur', hour: "2-digit", minute: "2-digit", second: "2-digit"};
+    $('#clock2 .time').html(now.toLocaleString('de-DE', formatOptions))
+
     // Trying to do something clever here to ensure we update the time roughly within
     // 100ms of the turn of the second
 
@@ -110,6 +113,8 @@ function resizeText() {
         $('#TextCell').css('font-size', newTextSize + 'px');
         $('#TextCell').css('visibility', 'visible');
     }
+
+    $('#clock2').css('fontSize', $('body').width() / 25.0)
 }
 
 $.getJSON("config.json", function(data) {
