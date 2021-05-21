@@ -1,32 +1,78 @@
 <!doctype html>
-
 <html lang="en">
 <head>
-  <title>Pi Clock</title>
+    <title>Pi Clock</title>
+    <meta charset="utf-8">
 
-  <meta charset="utf-8">
-  <meta name="description" content="Pi Clock">
-  <meta name="author" content="lzs">
+    <link rel="stylesheet" href="style.css">
 
-  <link rel="stylesheet" href="style.css">
+    <script type="application/javascript">
+        function showTime() {
+
+            const now = new Date();
+            $('#clock1 .time').html(now.toLocaleTimeString('de-DE', {
+                timeZone: 'Europe/Berlin',
+                hour: "2-digit",
+                minute: "2-digit"
+            }))
+
+            $('#clock2 .time').html(now.toLocaleTimeString('de-DE', {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour: "2-digit",
+                minute: "2-digit", second: "2-digit"
+            }))
+            $('#clock2 .date').html(now.toLocaleDateString('de-DE', {
+                timeZone: 'Asia/Kuala_Lumpur',
+                weekday: "long",
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            }))
+
+            $('#clock3 .time').html(now.toLocaleTimeString('de-DE', {
+                timeZone: 'Europe/Moscow',
+                hour: "2-digit",
+                minute: "2-digit"
+            }))
+
+            setTimeout(showTime, 100);
+            resizeText();
+        }
+
+        function resizeText() {
+            const width = $('body').width();
+
+            $('#clock1 .time').css('fontSize', width / 15.0)
+            $('#clock2 .time').css('fontSize', width / 5.0)
+            $('#clock3 .time').css('fontSize', width / 15.0)
+
+            $('.date').css('fontSize', width / 20.0)
+            $('.zone').css('fontSize', width / 30.0)
+        }
+    </script>
 </head>
 
 <body onload="showTime()">
 
-<div id="TextContainer" class="clock">
-    <div id="TextCell">
-    <span id="sign"></span><span id="hour"></span><span id="hoursep">:</span><span id="min"></span><span>:</span><span id="sec"></span>
-    </div>
+<div id="clock1">
+    <div class="time"></div>
+    <div class="date"></div>
+    <div class="zone">Berlin</div>
 </div>
 
+<div id="clock2">
+    <div class="time"></div>
+    <div class="date"></div>
+    <div class="zone"></div>
+</div>
 
-<div id="clock2" class="clock-alt">
-    <span style="font-size: 0.6em;">Malaysia</span>
-    <span class="time"></span>
+<div id="clock3">
+    <div class="time"></div>
+    <div class="date"></div>
+    <div class="zone">Moscow</div>
 </div>
 
 <script src="js/jquery-3.4.1.min.js"></script>
-<script src="script.js"></script>
 
 </body>
 </html>

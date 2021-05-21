@@ -1,51 +1,62 @@
-/* share-tech-mono-regular - latin */
 @font-face {
-  font-family: 'Share Tech Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Share Tech Mono'), local('ShareTechMono-Regular'),
-       url('fonts/share-tech-mono-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/share-tech-mono-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-family: 'Share Tech Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Share Tech Mono'), local('ShareTechMono-Regular'),
+    url('fonts/share-tech-mono-v9-latin-regular.woff2') format('woff2'),
+    url('fonts/share-tech-mono-v9-latin-regular.woff') format('woff');
 }
 
-body {
-    margin: 0;
+html, body {
+    font-family: 'Share Tech Mono', sans-serif;
     background: black;
     color: white;
-}
-
-#TextContainer {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    color: white;
-    transform: translateY(-50%);
-}
-
-#hour, #min, #sec {
-    font-family: "Share Tech Mono";
     font-weight: bold;
 }
-#hour, #min {
-    font-size: 120%;
+
+#clock1, #clock2, #clock3 {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
 }
 
-#sign {
-    font-family: "Share Tech Mono";
-    font-size: 120%;
-}
-
-#TextCell {
-    font-size: 100%;
-    display: inline;
-    visibility: hidden;
+#clock1 {
+    left: 0
 }
 
 #clock2 {
-    font-family: "Share Tech Mono";
-    font-weight: bold;
-    position: absolute;
-    bottom: 0;
+    left: 0;
     right: 0;
+}
+
+#clock3 {
+    right: 0;
+}
+
+.time, .zone, .date {
+    display: block;
+    width: 100%;
+    position: absolute;
+}
+
+.zone {
+    bottom: 4%;
+}
+
+#clock1 .time,
+#clock3 .time {
+    bottom: 10%;
+}
+
+#clock2 .time {
+    bottom: 33%;
+}
+
+#clock2 .date {
+    bottom: 28%;
+}
+
+#clock1, #clock3 {
+    width: 24%
 }
